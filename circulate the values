@@ -1,5 +1,7 @@
 INPUT
 
+METHOD 1
+
 s=int(input("enter the a values in list:"))
 list=[]
 for i in range (0,s):
@@ -11,8 +13,19 @@ for i in range (0,s):
     list.append(element_deleted)
     print("the circulated list after",i+1,"rotation",list)
     
-    OUTPUT
-    
+METHOD 2
+
+  def circulate(c,n):
+    for i in range (1,n+1):
+        d=c[i:]+c[:i]
+        print("Circulate","=",d)
+    return
+c=[178,289,324,448,570,698,188,842,956,106]
+n=int(input("Enter n :"))
+circulate (c,n)
+
+ OUTPUT
+ METHOD 1 OUTPUT  
     Python 3.11.1 (tags/v3.11.1:a7a450f, Dec  6 2022, 19:58:39) [MSC v.1934 64 bit (AMD64)] on win32
 Type "help", "copyright", "credits" or "license()" for more information.
 >>> 
@@ -35,3 +48,19 @@ the circulated list after 5 rotation [0, 3, 2, 5, 9, 2, 1, 7]
 the circulated list after 6 rotation [3, 2, 5, 9, 2, 1, 7, 0]
 the circulated list after 7 rotation [2, 5, 9, 2, 1, 7, 0, 3]
 the circulated list after 8 rotation [5, 9, 2, 1, 7, 0, 3, 2]
+
+METHOD 2 OUTPUT
+
+Python 3.11.1 (tags/v3.11.1:a7a450f, Dec  6 2022, 19:58:39) [MSC v.1934 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> 
+= RESTART: C:/Users/rajkumar/AppData/Local/Programs/Python/Python311/CIRCULAYE SLICEFINAL.PY
+Enter n :6
+Circulate = [289, 324, 448, 570, 698, 188, 842, 956, 106, 178]
+Circulate = [324, 448, 570, 698, 188, 842, 956, 106, 178, 289]
+Circulate = [448, 570, 698, 188, 842, 956, 106, 178, 289, 324]
+Circulate = [570, 698, 188, 842, 956, 106, 178, 289, 324, 448]
+Circulate = [698, 188, 842, 956, 106, 178, 289, 324, 448, 570]
+Circulate = [188, 842, 956, 106, 178, 289, 324, 448, 570, 698]
+
+
