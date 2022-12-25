@@ -155,3 +155,141 @@ Circulate = [448, 570, 698, 188, 842, 956, 106, 178, 289, 324]
 Circulate = [570, 698, 188, 842, 956, 106, 178, 289, 324, 448]
 Circulate = [698, 188, 842, 956, 106, 178, 289, 324, 448, 570]
 Circulate = [188, 842, 956, 106, 178, 289, 324, 448, 570, 698]
+
+PRACTICE PROBLEMS 
+ARITHMETIC OPERATIONS
+INPUT
+a=int(input("enter the number 1"))
+b=int(input("enter the numbber 2"))
+print("the addition of a and b is",a+b)
+print("the subtraction of a and b is",a-b)
+print("the multiplication of a and b is",a*b)
+print("the division of a and b is",a/b)
+
+OUTPUT
+Python 3.11.1 (tags/v3.11.1:a7a450f, Dec  6 2022, 19:58:39) [MSC v.1934 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> 
+============ RESTART: C:/Users/rajkumar/Desktop/sap/mathematic op.py ===========
+enter the number 1 15
+enter the numbber 212
+the addition of a and b is 27
+the subtraction of a and b is 3
+the multiplication of a and b is 180
+the division of a and b is 1.25
+
+LEAP OR NOT
+INPUT
+def CheckLeap(Year):
+    if((Year % 400 == 0) or
+       (Year % 100 != 0) and
+       (Year % 4 == 0)):
+        print("Given Year is a leap Year");
+    else:
+        print ("Given Year is not a leap Year")
+Year = int(input("Enter the number: "))
+CheckLeap(Year)  
+
+OUTPUT
+Python 3.11.1 (tags/v3.11.1:a7a450f, Dec  6 2022, 19:58:39) [MSC v.1934 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> 
+================ RESTART: C:/Users/rajkumar/Desktop/sap/leap.py ================
+Enter the number: 2023
+Given Year is not a leap Year
+
+PRIME OR NOT
+INPUT
+g=int(input("Enter the Value of a :"))
+i=2
+for i in range(2,g):
+    if g%2==0:
+        print("The Given Number is NOT PRIME ")
+    else:
+        print("The Given Number is PRIME")
+    break
+
+OUTPUT
+Python 3.11.1 (tags/v3.11.1:a7a450f, Dec  6 2022, 19:58:39) [MSC v.1934 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> 
+============ RESTART: C:/Users/rajkumar/Desktop/sap/prime or not.py ============
+Enter the Value of a :5768
+The Given Number is NOT PRIME 
+
+COST OF APPLE
+INPUT
+cost=int(input("enter the cost of apple per kg"))
+weight=int(input("enter the kg of apple"))
+total=weight*cost
+print("the cost of apple is",total)
+
+OUTPUT
+Python 3.11.1 (tags/v3.11.1:a7a450f, Dec  6 2022, 19:58:39) [MSC v.1934 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> 
+========== RESTART: C:\Users\rajkumar\Downloads\cost of apple final.py =========
+enter the cost of apple per kg200
+enter the kg of apple 2
+the cost of apple is 400
+
+SIMPLE INTEREST
+INPUT
+p=int(input("Enter the Value of p :"))
+t=int(input("Enter the Value of t :"))
+r=int(input("Enter the Value of r :"))
+si=(p*t*r)/100
+print("the simple interest",si)
+
+OUTPUT
+Python 3.11.1 (tags/v3.11.1:a7a450f, Dec  6 2022, 19:58:39) [MSC v.1934 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> 
+================= RESTART: C:/Users/rajkumar/Desktop/sap/si.py =================
+Enter the Value of p :10
+Enter the Value of t :60
+Enter the Value of r :70
+the simple interest 420.0
+
+FAHRENHEIT TO CELCIUS
+INPUT
+f=120
+c=f-32*5/9
+print(c)
+
+OUTPUT
+Python 3.11.1 (tags/v3.11.1:a7a450f, Dec  6 2022, 19:58:39) [MSC v.1934 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> 
+=============== RESTART: C:/Users/rajkumar/Desktop/sap/f to c.py ===============
+102.22222222222223
+
+COST OF BOOK
+
+INPUT
+b1=int(input("enter the book value 1"))
+b2=int(input("enter the book value 2"))
+b3=int(input("enter the book value 3"))
+b4=int(input("enter the book value 4"))
+b5=int(input("enter the book value 5"))
+total=b1+b2+b3+b4+b5
+print("total of b1,b2,b3,b4,b5 is",total)
+discount=total*0.05
+print("discount",discount)
+
+OUTPUT
+Python 3.11.1 (tags/v3.11.1:a7a450f, Dec  6 2022, 19:58:39) [MSC v.1934 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> 
+=========== RESTART: C:/Users/rajkumar/Desktop/sap/bookfinal2 crt.py ===========
+enter the book value 1 100
+enter the book value 2500
+enter the book value 3850
+enter the book value 4100
+enter the book value 5250
+total of b1,b2,b3,b4,b5 is 1800
+discount 90.0
+
+
+
+
