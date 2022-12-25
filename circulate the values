@@ -1,0 +1,37 @@
+INPUT
+
+s=int(input("enter the a values in list:"))
+list=[]
+for i in range (0,s):
+    element=int(input("enter the value:"))
+    list.append(element)
+print("circulating the list")
+for i in range (0,s):
+    element_deleted=list.pop(0)
+    list.append(element_deleted)
+    print("the circulated list after",i+1,"rotation",list)
+    
+    OUTPUT
+    
+    Python 3.11.1 (tags/v3.11.1:a7a450f, Dec  6 2022, 19:58:39) [MSC v.1934 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> 
+========== RESTART: C:/Users/rajkumar/Desktop/sap/circulate_inbuilt.py =========
+enter the a values in list:8
+enter the value:5
+enter the value:9
+enter the value:2
+enter the value:1
+enter the value:7
+enter the value:0
+enter the value:3
+enter the value:2
+circulating the list
+the circulated list after 1 rotation [9, 2, 1, 7, 0, 3, 2, 5]
+the circulated list after 2 rotation [2, 1, 7, 0, 3, 2, 5, 9]
+the circulated list after 3 rotation [1, 7, 0, 3, 2, 5, 9, 2]
+the circulated list after 4 rotation [7, 0, 3, 2, 5, 9, 2, 1]
+the circulated list after 5 rotation [0, 3, 2, 5, 9, 2, 1, 7]
+the circulated list after 6 rotation [3, 2, 5, 9, 2, 1, 7, 0]
+the circulated list after 7 rotation [2, 5, 9, 2, 1, 7, 0, 3]
+the circulated list after 8 rotation [5, 9, 2, 1, 7, 0, 3, 2]
