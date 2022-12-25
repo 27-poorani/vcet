@@ -1,0 +1,41 @@
+METHOD 1
+a=int(input("enter the number a:"))
+b=int(input("enter the number b:"))
+c=a
+a=b
+b=c
+print("a,b and c after swaping",a,b)
+
+METHOD 2
+x=int(input("enter the number:"))
+y=int(input("enter the number:"))
+x=x+y
+y=x-y
+x=x-y
+print("values after swapping x:",x,"y:",y)
+
+METHOD 3
+x=int(input("enter the number:"))
+y=int(input("enter the number:"))
+x,y=y,x
+print("values after swapping:",x,y)
+
+OUTPUT
+
+Python 3.11.1 (tags/v3.11.1:a7a450f, Dec  6 2022, 19:58:39) [MSC v.1934 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> 
+================ RESTART: C:/Users/rajkumar/Desktop/sap/exchange method1.py ===============
+enter the number a:5
+enter the number b:8
+a,b and c after swaping 8 5
+>>> 
+================ RESTART: C:/Users/rajkumar/Desktop/sap/exchange method1.py ===============
+enter the number a:7
+enter the number b:9
+a,b and c after swaping 9 7
+enter the number:
+================ RESTART: C:/Users/rajkumar/Desktop/sap/exchange method1.py ===============
+enter the number a:3
+enter the number b:9
+a,b and c after swaping 9 3
