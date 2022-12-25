@@ -1,0 +1,157 @@
+DISTANCE
+INPUT
+a=(input("enter the value of a"))
+b=int(input("enter the value of b"))
+c=(int(input("enter the value of c"))
+d=int(input("enter the value of d"))
+x1=a
+x2=b
+y1=c
+y2=d
+d=((x1-x2)**2+(y1-y2)**2)**1/2
+print("the distance is",d)
+
+OUTPUT
+Python 3.11.1 (tags/v3.11.1:a7a450f, Dec  6 2022, 19:58:39) [MSC v.1934 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> 
+============== RESTART: C:/Users/rajkumar/Desktop/sap/distance.py ==============
+enter the value of a10
+enter the value of b20
+enter the value of c30
+enter the value of d40
+the distance is 100.0
+
+EXCHANGE OF VALUES 
+INPUT
+METHOD 1
+a=int(input("enter the number a:"))
+b=int(input("enter the number b:"))
+c=a
+a=b
+b=c
+print("a,b and c after swaping",a,b)
+
+METHOD 2
+x=int(input("enter the number:"))
+y=int(input("enter the number:"))
+x=x+y
+y=x-y
+x=x-y
+print("values after swapping x:",x,"y:",y)
+
+METHOD 3
+x=int(input("enter the number:"))
+y=int(input("enter the number:"))
+x,y=y,x
+print("values after swapping:",x,y)
+
+METHOD 4
+x = input('Enter value of x: ')
+temp = x
+x = y
+y = temp
+print('The value of x after swapping: {}'.format(x))
+print('The value of y after swapping: {}'.format(y))
+
+METHOD 5
+x = 10
+y = 50
+x = x ^ y
+y = x ^ y
+x = x ^ y
+print("Value of x:", x)
+
+OUTPUT 
+Python 3.11.1 (tags/v3.11.1:a7a450f, Dec  6 2022, 19:58:39) [MSC v.1934 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+
+================ RESTART: C:/Users/rajkumar/Desktop/sap/exchange method1.py ===============
+enter the number a:5
+enter the number b:8
+a,b and c after swaping 8 5
+>>> 
+================ RESTART: C:/Users/rajkumar/Desktop/sap/exchange method2.py ===============
+enter the number a:7
+enter the number b:9
+a,b and c after swaping 9 7
+
+================ RESTART: C:/Users/rajkumar/Desktop/sap/exchange method3.py ===============
+enter the number a:3
+enter the number b:9
+a,b and c after swaping 9 3
+
+================ RESTART: C:/Users/rajkumar/Desktop/sap/exchange method4.py ===============
+enter the number a:7
+enter the number b:1
+a,b and c after swaping 1 7
+
+================ RESTART: C:/Users/rajkumar/Desktop/sap/exchange method5.py ===============
+enter the number a:10
+enter the number b:7
+a,b and c after swaping 7 10
+
+CIRCULATE THE VALUES 
+METHOD 1
+INPUT
+s=int(input("enter the a values in list:"))
+list=[]
+for i in range (0,s):
+    element=int(input("enter the value:"))
+    list.append(element)
+print("circulating the list")
+for i in range (0,s):
+    element_deleted=list.pop(0)
+    list.append(element_deleted)
+    print("the circulated list after",i+1,"rotation",list)
+
+METHOD 2
+INPUT 
+def circulate(c,n):
+    for i in range (1,n+1):
+        d=c[i:]+c[:i]
+        print("Circulate","=",d)
+    return
+c=[178,289,324,448,570,698,188,842,956,106]
+n=int(input("Enter n :"))
+circulate (c,n)
+
+OUTPUT
+METHOD 1
+Python 3.11.1 (tags/v3.11.1:a7a450f, Dec  6 2022, 19:58:39) [MSC v.1934 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> 
+========== RESTART: C:/Users/rajkumar/Desktop/sap/circulate_inbuilt.py =========
+enter the a values in list:8
+enter the value:5
+enter the value:9
+enter the value:2
+enter the value:1
+enter the value:7
+enter the value:0
+enter the value:3
+enter the value:2
+circulating the list
+the circulated list after 1 rotation [9, 2, 1, 7, 0, 3, 2, 5]
+the circulated list after 2 rotation [2, 1, 7, 0, 3, 2, 5, 9]
+the circulated list after 3 rotation [1, 7, 0, 3, 2, 5, 9, 2]
+the circulated list after 4 rotation [7, 0, 3, 2, 5, 9, 2, 1]
+the circulated list after 5 rotation [0, 3, 2, 5, 9, 2, 1, 7]
+the circulated list after 6 rotation [3, 2, 5, 9, 2, 1, 7, 0]
+the circulated list after 7 rotation [2, 5, 9, 2, 1, 7, 0, 3]
+the circulated list after 8 rotation [5, 9, 2, 1, 7, 0, 3, 2]
+
+OUTPUT
+METHOD 2
+
+Python 3.11.1 (tags/v3.11.1:a7a450f, Dec  6 2022, 19:58:39) [MSC v.1934 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> 
+= RESTART: C:/Users/rajkumar/AppData/Local/Programs/Python/Python311/CIRCULAYE SLICEFINAL.PY
+Enter n :6
+Circulate = [289, 324, 448, 570, 698, 188, 842, 956, 106, 178]
+Circulate = [324, 448, 570, 698, 188, 842, 956, 106, 178, 289]
+Circulate = [448, 570, 698, 188, 842, 956, 106, 178, 289, 324]
+Circulate = [570, 698, 188, 842, 956, 106, 178, 289, 324, 448]
+Circulate = [698, 188, 842, 956, 106, 178, 289, 324, 448, 570]
+Circulate = [188, 842, 956, 106, 178, 289, 324, 448, 570, 698]
