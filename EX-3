@@ -67,77 +67,60 @@ enter the value40
 U
 >>> 
 
-POSITIVE,NEGATIVE OR ZERO
-INPUT
-n=int(input("enter the number"))
-if(n>0):
-    print("n is positive")
-elif(n<0):
-    print("n is negative")
-else:
-    print("n is zero")
-
-OUTPUT
-Python 3.5.3 (v3.5.3:1880cb95a742, Jan 16 2017, 15:51:26) [MSC v.1900 32 bit (Intel)] on win32
-Type "copyright", "credits" or "license()" for more information.
->>> 
-========== RESTART: C:/Users/TEMP.VCET.005/Downloads/sap/postive.py ==========
-enter the number7
-n is positive
->>> 
-========== RESTART: C:/Users/TEMP.VCET.005/Downloads/sap/postive.py ==========
-enter the number-8
-n is negative
->>> 
-========== RESTART: C:/Users/TEMP.VCET.005/Downloads/sap/postive.py ==========
-enter the number0
-n is zero
->>> 
-
-CHANGE INTO UPPER/LOWER
+UPPERCASE OR LOWERCASE
 INPUT
 ch=input("enter the character")
 if(ch.isupper()):
-    print("LOWER")
-elif(ch.islower()):
-    print("UPPER")
+    print('UPPER')
+else:
+    print('LOWER')
+    
+OUTPUT
+Python 3.5.3 (v3.5.3:1880cb95a742, Jan 16 2017, 15:51:26) [MSC v.1900 32 bit (Intel)] on win32
+Type "copyright", "credits" or "license()" for more information.
+
+========= RESTART: C:/Users/TEMP.VCET.005/Downloads/sap/uppercase.py =========
+enter the character G
+UPPER
+========= RESTART: C:/Users/TEMP.VCET.005/Downloads/sap/uppercase.py =========
+enter the character g
+LOWER
+
+QUADRATIC EQUATION 
+INPUT
+a=int(input("enter coeff of X**2"))
+b=int(input("enter coeff of x"))
+c=int(input("enter the constant:"))
+root1=(-b+((b**2)-4*a*c)**1/2)/2*a
+root2=(-b-((b**2)-4*a*c)**1/2)/2*a
+print("roots of quadratic equation:",root1,root2)
 
 OUTPUT
-
 Python 3.5.3 (v3.5.3:1880cb95a742, Jan 16 2017, 15:51:26) [MSC v.1900 32 bit (Intel)] on win32
 Type "copyright", "credits" or "license()" for more information.
 >>> 
-======= RESTART: C:/Users/TEMP.VCET.005/Downloads/sap/uppertolower.py =======
-enter the character A
-LOWER
->>> 
-======= RESTART: C:/Users/TEMP.VCET.005/Downloads/sap/uppertolower.py =======
-enter the character a
-UPPER
->>> 
+=========== RESTART: C:/Users/TEMP.VCET.005/Downloads/sap/root.py ===========
+enter coeff of X**22
+enter coeff of x4
+enter the constant:8
+roots of quadratic equation: -28.0 20.0
 
-BONUS CALCULATION
+VOTING ELIGIBILITY
 INPUT
-salary=int(input("enter the amount"))
-if(salary>10000):
-    finalsalary=salary+(salary*10/100)
-    print(finalsalary,"you have 10 percent bonus")
-elif(salary<10000):
-    finalsalary=salary+(salary*12/100)
-    print(finalsalary,"you have 12 percent bonus")
-else:
-    print("you have not recieved bonus")
+age=int(input("enter the value"))
+if(age>=18):
+    print("eligible to vote")
+elif(age<=18):
+    print("not eligible to vote")
 
 OUTPUT
-=========== RESTART: C:/Users/TEMP.VCET.005/Downloads/sap/bonus.py ===========
-enter the amount10050
-11055.0 you have 10 percent bonus
-<<<
-=========== RESTART: C:/Users/TEMP.VCET.005/Downloads/sap/bonus.py ===========
-enter the amount20000
-22000.0 you have 10 percent bonus
-<<<
-=========== RESTART: C:/Users/TEMP.VCET.005/Downloads/sap/bonus.py ===========
-enter the amount5000
-5600.0 you have 12 percent bonus
-
+Python 3.5.3 (v3.5.3:1880cb95a742, Jan 16 2017, 15:51:26) [MSC v.1900 32 bit (Intel)] on win32
+Type "copyright", "credits" or "license()" for more information.
+>>> 
+=========== RESTART: C:/Users/TEMP.VCET.005/Downloads/sap/vote.py ===========
+enter the value19
+eligible to vote
+>>> 
+=========== RESTART: C:/Users/TEMP.VCET.005/Downloads/sap/vote.py ===========
+enter the value15
+not eligible to vote
