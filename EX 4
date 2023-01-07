@@ -1,0 +1,123 @@
+I. Number series
+THE SUM OF SERIES 1/2!+2/3!+3/4!+4/5!+.....N/(N+1)!
+INPUT
+n=int(input("enter number of terms"))
+f=1
+s=0
+for i in range (1,n+1):
+    f=f*(i+1)
+    s=s*(i/f)
+print("sum:",s)
+
+OUTPUT
+Python 3.5.3 (v3.5.3:1880cb95a742, Jan 16 2017, 15:51:26) [MSC v.1900 32 bit (Intel)] on win32
+Type "copyright", "credits" or "license()" for more information.
+>>> 
+=========== RESTART: C:/Users/TEMP.VCET.007/Downloads/no series.py ===========
+enter number of terms4
+sum: 0.0
+>>> 
+=========== RESTART: C:/Users/TEMP.VCET.007/Downloads/no series.py ===========
+enter number of terms5
+sum: 0.0
+
+FIBBONACCI SERIES
+INPUT
+f1=int(input("enter first value"))
+f2=int(input("enter second value"))
+n=int(input("enter n value"))
+print(f1)
+print(f2)
+i=0
+while(i<n-2):
+    f3=f1+f2
+    print(f3)
+    f1=f2
+    f2=f3
+    i=i+1
+    
+OUTPUT
+Python 3.5.3 (v3.5.3:1880cb95a742, Jan 16 2017, 15:51:26) [MSC v.1900 32 bit (Intel)] on win32
+Type "copyright", "credits" or "license()" for more information.
+>>> 
+============= RESTART: C:\Users\TEMP.VCET.007\Downloads\fibbo.py =============
+enter first value0
+enter second value1
+enter n value8
+0
+1
+1
+2
+3
+5
+8
+13
+
+II. Number Pyramid - Inverted Pyramid pattern with the same digit
+INPUT
+rows=int(input("enter the number of rows"))
+for i in range (rows,0,-1):
+    for j in range (0,i):
+        print("5",end=" ")
+    print(" ")
+    
+OUTPUT
+Python 3.5.3 (v3.5.3:1880cb95a742, Jan 16 2017, 15:51:26) [MSC v.1900 32 bit (Intel)] on win32
+Type "copyright", "credits" or "license()" for more information.
+>>> 
+====================== RESTART: D:/sap/inverted py 5.py ======================
+enter the number of rows5
+5 5 5 5 5  
+5 5 5 5  
+5 5 5  
+5 5  
+5  
+>>> 
+
+III. Pyramid Pattern - Right down mirror star Pattern
+
+INPUT
+n=int(input("enter number of rows:"))
+for i in range(n):
+    for j in range(i):
+        print("",end=" ")
+    for j in range(n-i):
+        print("*",end=" ")
+    print()
+
+OUTPUT
+Python 3.5.3 (v3.5.3:1880cb95a742, Jan 16 2017, 15:51:26) [MSC v.1900 32 bit (Intel)] on win32
+Type "copyright", "credits" or "license()" for more information.
+>>> 
+================== RESTART: D:/sap/rightdown starpyramid.py ==================
+enter number of rows:5
+* * * * * 
+ * * * * 
+  * * * 
+   * * 
+    * 
+>>> 
+
+IV. Reversing a Number
+
+INPUT
+n=int(input("enter the number"))
+num=n
+sum=0
+while(n>0):
+    rem=n%10
+    sum=(sum*10)+rem
+    n=n//10
+    print("reverse of a number:",sum)
+    
+OUTPUT
+Python 3.5.3 (v3.5.3:1880cb95a742, Jan 16 2017, 15:51:26) [MSC v.1900 32 bit (Intel)] on win32
+Type "copyright", "credits" or "license()" for more information.
+>>> 
+========= RESTART: C:\Users\TEMP.VCET.007\Downloads\reversequess.py =========
+enter the number651
+reverse of a number: 1
+reverse of a number: 15
+reverse of a number: 156
+>>> 
+
