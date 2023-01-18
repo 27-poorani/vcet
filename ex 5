@@ -1,0 +1,126 @@
+Define a function to find the min of two numbers
+            
+input    
+def minimum(a,b):
+    if a<=b:
+        return a
+    else:
+        return b
+
+a=int(input("enter the number"))
+b=int(input("enter the number"))
+print(minimum(a,b))
+
+output
+Python 3.5.3 (v3.5.3:1880cb95a742, Jan 16 2017, 15:51:26) [MSC v.1900 32 bit (Intel)] on win32
+Type "copyright", "credits" or "license()" for more information.
+>>> 
+========== RESTART: C:/Users/TEMP.VCET.009/Downloads/min of two.py ==========
+enter the number5
+enter the number8
+5
+>>> 
+
+Print the area and Perimeter of Square  using Function
+input
+def area_of_square(side):
+    return side*side
+side=float(input("enter the value"))
+print("area of square is:",area_of_square(side))
+
+output
+Python 3.5.3 (v3.5.3:1880cb95a742, Jan 16 2017, 15:51:26) [MSC v.1900 32 bit (Intel)] on win32
+Type "copyright", "credits" or "license()" for more information.
+>>> 
+========== RESTART: C:/Users/TEMP.VCET.009/Downloads/area of sw.py ==========
+enter the value5
+area of square is: 25.0
+>>> 
+
+input
+def perimeter_of_square(side):
+    return 4*side
+side=float(input("enter the value"))
+print("perimeter of square is:",perimeter_of_square(side))
+
+output
+Python 3.5.3 (v3.5.3:1880cb95a742, Jan 16 2017, 15:51:26) [MSC v.1900 32 bit (Intel)] on win32
+Type "copyright", "credits" or "license()" for more information.
+>>> 
+========== RESTART: C:/Users/TEMP.VCET.009/Downloads/peri of sq.py ==========
+enter the value5
+perimeter of square is: 20.0
+>>> 
+
+check the relationship between two numbers( > ,< or = ) using function 
+input
+def maximum(a,b):
+    if(a>b):
+        print('a is greater than b')
+    else:
+        print('b is greater than a')
+    
+a=int(input("enter the value of a"))
+b=int(input("enter the value of b"))
+if(a==b):
+    print("a is equal to b")
+else:
+    print(maximum(a,b))
+        
+output
+Python 3.5.3 (v3.5.3:1880cb95a742, Jan 16 2017, 15:51:26) [MSC v.1900 32 bit (Intel)] on win32
+Type "copyright", "credits" or "license()" for more information.
+>>> 
+============== RESTART: C:/Users/TEMP.VCET.009/Downloads/sss.py ==============
+enter the value of a45
+enter the value of b15
+a is greater than b
+None
+>>> 
+=========== RESTART: C:/Users/TEMP.VCET.009/Downloads/relation .py ===========
+enter the value of a45 
+enter the value of b45
+a is equal to b
+>>> 
+=========== RESTART: C:/Users/TEMP.VCET.009/Downloads/relation .py ===========
+enter the value of a15
+enter the value of b45
+b is greater than a
+None
+>>> 
+
+Return the full name of the Person( first name, last name) using function
+input
+def name(firstname,lastname):
+    return firstname+lastname
+    
+firstname=input("enter the first name")
+lastname=input("enter the second name")
+print("name is:",name(firstname,lastname))
+
+output
+Python 3.5.3 (v3.5.3:1880cb95a742, Jan 16 2017, 15:51:26) [MSC v.1900 32 bit (Intel)] on win32
+Type "copyright", "credits" or "license()" for more information.
+>>> 
+============= RESTART: C:/Users/TEMP.VCET.009/Downloads/name.py =============
+enter the first nameanna
+enter the second namepoorani
+name is: annapoorani
+>>> 
+
+write a python program to convert time hours into minutes
+input
+def hour(a):
+    return a*60
+a=int(input("enter the time"))
+print("minute is:",hour(a))
+
+output
+Python 3.5.3 (v3.5.3:1880cb95a742, Jan 16 2017, 15:51:26) [MSC v.1900 32 bit (Intel)] on win32
+Type "copyright", "credits" or "license()" for more information.
+>>> 
+============= RESTART: C:/Users/TEMP.VCET.009/Downloads/time.py =============
+enter the time2
+minute is: 120
+>>> 
+
