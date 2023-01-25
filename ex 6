@@ -1,0 +1,71 @@
+#Python Program to check whether the input string is palindrome.
+n=int(input("enter the number:"))
+num=n
+sum=0
+while(n>0):
+    a=n%10
+    sum=sum*10+a
+    n=n//10
+if(sum==num):
+    print("the given number is palindrome")
+else:
+    print("the given number is not palindrome")
+
+output
+enter the number:258
+the given number is not palindrome
+>>> 
+========== RESTART: C:\Users\TEMP.VCET.013\Downloads\palindrome.py ==========
+enter the number:121
+the given number is palindrome
+
+#reverse the string
+n=int(input("enter the number:"))
+sum=0
+while(n>0):
+    a=n%10
+    sum=sum*10+a
+    n=n//10
+    print(sum)
+
+output
+enter the number:561
+1
+16
+165
+
+#count the string
+str=input("enter the string")
+count=0
+for i in str:
+    count+=1
+print(count)
+
+output
+17
+
+#replace the vowels by @
+str = input("Enter the string: ")
+newStr = ""
+for ch in str : 
+    letter = ch.lower()
+    if letter == 'a' \
+       or letter == 'e' \
+       or letter == 'i' \
+       or letter == 'o' \
+       or letter == 'u' :
+        newStr += '@'
+    else :
+        newStr += ch
+print(newStr)
+
+output
+Enter the string: engineering
+@ng@n@@r@ng
+>>> 
+=============== RESTART: C:/Users/TEMP.VCET.013/Downloads/@.py ===============
+Enter the string: college
+c@ll@g@
+>>> 
+
+
