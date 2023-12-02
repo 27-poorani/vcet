@@ -1,0 +1,765 @@
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.sql.Connection;
+import java.util.logging.Logger;
+public class DBConnection {
+    public Connection con;
+    String url ="jdbc:mysql://localhost:3307/supplychainmanagement";
+    String db = "supplychainmanagement";
+    String user = "root";
+    String pass = "";
+    
+    public Connection mkDataBase() throws SQLException{
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection(url, user, pass);
+           
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DBConnection.class.getName()).log(Level.SEVERE, null, ex);
+     
+        }
+        return con;
+    }
+}
+1. Login module
+This module helps to make a login page so the user can enter the user name and password to the Supply Chain management system in Java. Name the file login.java.
+
+import java.awt.*;
+import javax.swing.*;
+import javax.swing.colorchooser.AbstractColorChooserPanel;
+import java.awt.event.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+public class Login extends JFrame{
+    JLabel idLabel;
+    JLabel passLabel;
+    JLabel background;
+    JLabel headerLabel;
+    JLabel devInfo;
+    JTextField id;
+    JPasswordField pass;
+    JButton submit;
+   public Login(){
+        setTitle("Supply Chain Management System");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+        this.background = new JLabel(new ImageIcon("C:\\Users\\ELCOT\\Downloads\\Bg.png"));
+        //mainFrame.getContentPane().setBackground(Color.white);
+        this.init();
+        add(background);
+        background.setVisible(true);  
+        this.pack();
+        this.setSize(700,400);
+        this.setLocationRelativeTo(null);
+    }
+    public void init(){
+        headerLabel = new JLabel();
+        //this.headerLabel.setText("Supply Chain Management System");
+        this.headerLabel.setBounds(190,1,370,150);
+        this.headerLabel.setFont(new Font("Geomanist", Font.BOLD, 20));
+        headerLabel.setForeground(Color.red);
+        add(headerLabel);
+        
+        idLabel = new JLabel();
+        this.idLabel.setText("Username");
+        this.idLabel.setBounds(190,110,100,50);
+        this.idLabel.setFont(new Font(null, Font.BOLD, 20));
+        idLabel.setForeground(Color.black);
+        add(idLabel);
+        
+        passLabel=new JLabel("Password");
+        this.passLabel.setBounds(190,165,100,50);
+        this.passLabel.setFont(new Font(null, Font.BOLD, 20));
+        passLabel.setForeground(Color.black);
+        add(passLabel);
+        
+        devInfo = new JLabel();
+        this.devInfo.setText("");
+        this.devInfo.setBounds(130,300,1000,30);
+        this.devInfo.setFont(new Font("Geomanist", Font.PLAIN, 15));
+        devInfo.setForeground(Color.white);
+        add(devInfo);
+            
+        id=new JTextField();
+        this.id.setBounds(300,125,200,30);
+        add(id);
+        
+        pass=new JPasswordField();
+        this.add(pass);
+        this.pass.setBounds(300,175,200,30);
+        this.id.setVisible(true);
+       this.submit=new JButton("Login");
+       this.submit.setBounds(400,230,100,25);
+       add(submit);
+       submit.addActionListener(this::submitActionPerformed);
+    } 
+   public void submitActionPerformed(java.awt.event.ActionEvent evt){
+   if(id.getText().equals("admin") && pass.getText().equals("admin")){
+     this.hide();
+     Frame2new fn=new Frame2new();
+     fn.showButtonDemo();
+   }
+   else{
+    JOptionPane.showMessageDialog(null, "Invalid password!");
+   }
+   }
+}
+class MyGui{
+    public static void main(String[] a){
+        Login l = new Login();
+        l.setVisible(true);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.awt.*;
+import javax.swing.*;
+import javax.swing.colorchooser.AbstractColorChooserPanel;
+import java.awt.event.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public class Login extends JFrame{
+    JLabel idLabel;
+    JLabel passLabel;
+	JLabel background;
+	JLabel headerLabel;
+	JLabel devInfo;
+    JTextField id;
+    JPasswordField pass;
+    JButton submit;
+
+   public Login(){
+		setTitle("Supply Chain Management System");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setVisible(true);
+		this.background = new JLabel(new ImageIcon("C:\\Users\\ELCOT\\Downloads\\Bg.png"));
+		//mainFrame.getContentPane().setBackground(Color.white);
+		this.init();
+		add(background);
+		background.setVisible(true);  
+        this.pack();
+		this.setSize(700,400);
+		this.setLocationRelativeTo(null);
+    }
+
+    public void init(){
+		headerLabel = new JLabel();
+		//this.headerLabel.setText("Supply Chain Management System");
+		this.headerLabel.setBounds(190,1,370,150);
+		this.headerLabel.setFont(new Font("Geomanist", Font.BOLD, 20));
+		headerLabel.setForeground(Color.red);
+		add(headerLabel);
+		
+		idLabel = new JLabel();
+		this.idLabel.setText("Username");
+		this.idLabel.setBounds(190,110,100,50);
+		this.idLabel.setFont(new Font(null, Font.BOLD, 20));
+		idLabel.setForeground(Color.black);
+		add(idLabel);
+		
+        passLabel=new JLabel("Password");
+		this.passLabel.setBounds(190,165,100,50);
+		this.passLabel.setFont(new Font(null, Font.BOLD, 20));
+		passLabel.setForeground(Color.black);
+		add(passLabel);
+		
+		devInfo = new JLabel();
+		this.devInfo.setText("");
+		this.devInfo.setBounds(130,300,1000,30);
+		this.devInfo.setFont(new Font("Geomanist", Font.PLAIN, 15));
+		devInfo.setForeground(Color.white);
+		add(devInfo);
+			
+		id=new JTextField();
+		this.id.setBounds(300,125,200,30);
+		add(id);
+		
+		pass=new JPasswordField();
+		this.add(pass);
+		this.pass.setBounds(300,175,200,30);
+		this.id.setVisible(true);
+       this.submit=new JButton("Login");
+	   this.submit.setBounds(400,230,100,25);
+	   add(submit);
+       submit.addActionListener(this::submitActionPerformed);
+    } 
+
+   public void submitActionPerformed(java.awt.event.ActionEvent evt){
+   if(id.getText().equals("admin") && pass.getText().equals("admin")){
+     this.hide();
+     Frame2new fn=new Frame2new();
+     fn.showButtonDemo();
+   }
+   else{
+    JOptionPane.showMessageDialog(null, "Invalid password!");
+   }
+   }
+}
+class MyGui{
+	public static void main(String[] a){
+		Login l = new Login();
+		l.setVisible(true);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2. Home Module
+Once we enter the correct username and password on the login page, it takes us to the home page of our Supply Chain Management System Project in Java. Name the file home.java.
+
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.*;
+import java.awt.Color;
+public class Home {
+   private JFrame mainFrame;
+   private JLabel headerLabel;
+   private JLabel statusLabel;
+   private JPanel controlPanel;
+   
+   public Home(){
+     prepareGUI();
+   }
+   public static void main(String[] args){
+      Home  swingControlDemo = new Home();
+      swingControlDemo.showButtonDemo();
+   }
+   private void prepareGUI(){
+      mainFrame = new JFrame("Supply Chain Management System");
+      mainFrame.setBounds(100,100,700,400);
+      mainFrame.setLayout(new GridLayout(3,1));
+     mainFrame.getContentPane().setBackground(Color.white);
+      mainFrame.addWindowListener(new WindowAdapter() {
+         public void windowClosing(WindowEvent windowEvent){
+            System.exit(0);
+         }
+      });
+      headerLabel = new JLabel("", JLabel.CENTER);
+      statusLabel = new JLabel("",JLabel.CENTER);
+      statusLabel.setSize(350,300);
+      controlPanel = new JPanel();
+      controlPanel.setLayout(new GridLayout(1,5));
+      mainFrame.add(headerLabel);
+      mainFrame.add(controlPanel);
+      mainFrame.add(statusLabel);
+      mainFrame.setVisible(true);
+   }
+   public void showButtonDemo(){
+        headerLabel.setText("Supply Chain Management System");
+        this.headerLabel.setFont(new Font(null, Font.BOLD, 27));
+        headerLabel.setForeground(Color.black);
+        JButton fkButton = new JButton("Product Details");
+        JButton abButton = new JButton("About");
+        JButton afButton = new JButton("Product");
+        JButton ufButton = new JButton("Supplier Account");
+        JButton dlButton = new JButton("Puchase Product");
+        fkButton.addActionListener(new ActionListener()
+{
+         public void actionPerformed(ActionEvent e) {
+           ItemInfo ii=new ItemInfo();
+             ii.showButtonDemo();
+         }
+});
+      afButton.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e)
+{
+            Home ef=new Home();
+            ef.showButtonDemo();
+         }
+});
+      ufButton.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+            Home uf=new Home();
+            uf.showButtonDemo();
+         }
+});
+     dlButton.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+            Home dl=new Home();
+            dl.showButtonDemo();
+         }
+});
+      controlPanel.add(ufButton);
+      controlPanel.add(afButton);
+      controlPanel.add(abButton);
+      controlPanel.add(fkButton);
+      controlPanel.add(dlButton);
+      mainFrame.setVisible(true);
+      mainFrame.setLocationRelativeTo(null);
+   }
+}
+
+
+3. Add Suplier module
+This module helps to add a new Suplier to the Supply chain management System. Name the file Suplier.java.
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+public class Suplier {
+   private JFrame mainFrame;
+   private JLabel headerLabel;
+   private JLabel statusLabel;
+   private JPanel controlPanel;
+   private JLabel id,name,email,password;
+   private static int count = 0;
+   GridLayout experimentLayout = new GridLayout(0,2);
+    ResultSet rs;
+    Suplier(){
+      prepareGUI();
+   }
+   public static void main(String[] args){
+      Suplier  swingControlDemo = new Suplier();
+      swingControlDemo.showButtonDemo();
+   }
+   private void prepareGUI(){
+      mainFrame = new JFrame("Create Suplier Account");
+      mainFrame.setSize(700,400);
+      mainFrame.setLayout(new GridLayout(3, 1));
+      mainFrame.getContentPane().setBackground(Color.green);
+      mainFrame.addWindowListener(new WindowAdapter() {
+         public void windowClosing(WindowEvent windowEvent){
+            mainFrame.setVisible(false);
+         }
+      });
+      headerLabel = new JLabel("", JLabel.CENTER);
+      statusLabel = new JLabel("",JLabel.CENTER);
+      statusLabel.setSize(350,400);
+      controlPanel = new JPanel();
+      controlPanel.setLayout(new FlowLayout());
+      mainFrame.add(headerLabel);
+      mainFrame.add(controlPanel);
+      mainFrame.add(statusLabel);
+      mainFrame.setVisible(true);
+   }
+   public void showButtonDemo(){
+      headerLabel.setText("Supply Chain Management System");
+      headerLabel.setFont(new Font(null, Font.BOLD, 27));
+      headerLabel.setForeground(Color.black);
+    
+        name = new JLabel("Enter Suplier Name");
+        JTextField tf2=new JTextField();
+        tf2.setSize(100,30);
+        
+        email = new JLabel("Enter Mail Id");
+        JTextField tf3=new JTextField();
+        tf3.setSize(100,30);
+        password = new JLabel("Enter Password");
+        JTextField tf4=new JTextField();
+        tf4.setSize(100,30);
+        JButton okButton = new JButton("Create");
+      okButton.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+            PreparedStatement pst;
+            DBConnection con = new DBConnection();
+            try{
+                pst = con.mkDataBase().prepareStatement("UPDATE supplychain SET f_quantity= ?, f_prize=? where f_name = ?");
+                pst.setString(3, tf2.getText());
+                pst.setDouble(2, Double.parseDouble(tf3.getText()));
+                pst.setInt(1, Integer.parseInt(tf4.getText()));
+                pst.execute();
+                
+                JOptionPane.showMessageDialog(null, "Suplier Account Created!" + tf2.getText());
+                mainFrame.setVisible(false);
+                
+            }catch(Exception ex){
+                System.out.println(ex);
+                //System.out.println("Error");
+                JOptionPane.showMessageDialog(null, "Error");
+            }finally{
+                
+            }
+         }
+      });
+      
+      JPanel jp = new JPanel();
+      jp.add(name);
+      jp.add(tf2);
+      jp.add(email);
+      jp.add(tf3);
+      jp.add(password);
+      jp.add(tf4);
+      
+      jp.setSize(200,200);
+      jp.setLayout(experimentLayout);
+      controlPanel.add(jp);
+      jp.add(okButton);
+      mainFrame.setVisible(true);
+      mainFrame.setLocationRelativeTo(null);
+   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4. Add Product module
+This module helps to add a new product to the Supply Chain Management System. Name the file AddProduct.java.
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+public class AddProduct {
+   private JFrame mainFrame;
+   private JLabel headerLabel;
+   private JPanel controlPanel;
+   private JLabel id,name,price,quantity,qt;
+   private static int count = 0;
+   GridLayout experimentLayout = new GridLayout(0,2);
+    ResultSet rs;
+    AddProduct(){
+    prepareGUI();
+   }
+   public static void main(String[] args){
+      AddProduct swingControlDemo = new AddProduct();
+      swingControlDemo.showButtonDemo();
+   }
+   private void prepareGUI(){
+      mainFrame = new JFrame("Add Product Details");
+      mainFrame.setSize(700,500);
+      mainFrame.setLayout(new GridLayout(3, 1));
+      
+      mainFrame.getContentPane().setBackground(Color.green);
+      
+      mainFrame.addWindowListener(new WindowAdapter() {
+         public void windowClosing(WindowEvent windowEvent){
+            mainFrame.setVisible(false);
+         }
+      });
+      headerLabel = new JLabel("", JLabel.CENTER);
+      controlPanel = new JPanel();
+      controlPanel.setLayout(new FlowLayout());
+      mainFrame.add(headerLabel);
+      mainFrame.add(controlPanel);
+      mainFrame.setVisible(true);
+   }
+   public void showButtonDemo(){
+        headerLabel.setText("Supply Chain Management System");
+        headerLabel.setFont(new Font(null, Font.BOLD, 27));
+        name = new JLabel("Enter Product Id");
+        JTextField tf2=new JTextField();
+        tf2.setSize(100,40);
+        price = new JLabel("Enter Product Name");
+        JTextField tf3=new JTextField();
+        tf3.setSize(100,40);
+        quantity = new JLabel("Enter Quantity");
+        JTextField tf4=new JTextField();
+        tf4.setSize(100,40);
+        
+        qt = new JLabel("Enter Price");
+        JTextField tf5=new JTextField();
+        tf4.setSize(100,40);
+        
+        JButton okButton = new JButton("Add");
+      okButton.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+            PreparedStatement pst;
+            DBConnection con = new DBConnection();
+            try{
+                pst = con.mkDataBase().prepareStatement("insert into supplychain(f_name,f_prize,f_quantity) values (?,?,?)");
+                pst.setString(1, tf2.getText());
+                pst.setDouble(2, Double.parseDouble(tf3.getText()));
+                pst.setInt(3, Integer.parseInt(tf4.getText()));
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "Product Added!" + tf2.getText());
+                mainFrame.setVisible(false);
+            }catch(Exception ex){
+                System.out.println(ex);
+                System.out.println("EEEE");
+                JOptionPane.showMessageDialog(null, "Error");
+            }finally{
+            }
+         }
+      });
+      JPanel jp = new JPanel(null);
+      jp.add(name);
+      jp.add(tf2);
+      jp.add(price);
+      jp.add(tf3);
+      jp.add(quantity);
+      jp.add(tf4);
+      jp.add(qt);
+      jp.add(tf5);
+      jp.setSize(700,700);
+      jp.setLayout(experimentLayout);
+      controlPanel.add(jp);
+      jp.add(okButton);
+        
+      mainFrame.setLocationRelativeTo(null);
+      mainFrame.setVisible(true);
+   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+5. Search Product module
+This module helps to search Product details in the Supply Chain Management System. Name the file SearchProduct.java.
+
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+public class SearchProduct {
+   private JFrame mainFrame;
+   private JLabel headerLabel;
+   private JLabel statusLabel;
+   private JPanel controlPanel;
+   private JLabel id,pid;
+   private static int count = 0;
+   GridLayout experimentLayout = new GridLayout(0,2);
+    ResultSet rs;
+   SearchProduct(){
+      prepareGUI();
+   }
+   public static void main(String[] args){
+      SearchProduct  swingControlDemo = new SearchProduct();
+      swingControlDemo.showButtonDemo();
+   }
+   private void prepareGUI(){
+      mainFrame = new JFrame("Search Product");
+      mainFrame.setSize(700,400);
+      mainFrame.setLayout(new GridLayout(3, 1));
+      mainFrame.getContentPane().setBackground(Color.green);
+      mainFrame.addWindowListener(new WindowAdapter() {
+         public void windowClosing(WindowEvent windowEvent){
+            mainFrame.setVisible(false);
+         }
+      });
+      headerLabel = new JLabel("", JLabel.CENTER);
+      statusLabel = new JLabel("",JLabel.CENTER);
+      statusLabel.setSize(350,400);
+      controlPanel = new JPanel();
+      controlPanel.setLayout(new FlowLayout());
+      mainFrame.add(headerLabel);
+      mainFrame.add(controlPanel);
+      mainFrame.add(statusLabel);
+      mainFrame.setVisible(true);
+   }
+   public void showButtonDemo(){
+      headerLabel.setText("Supply Chain Management System");
+      headerLabel.setFont(new Font(null, Font.BOLD, 27));
+      headerLabel.setForeground(Color.black);
+    
+        pid = new JLabel("Enter Product Id");
+        JTextField tf2=new JTextField();
+        tf2.setSize(100,30);
+        
+        JButton okButton = new JButton("Search Product");
+      okButton.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+            PreparedStatement pst;
+            DBConnection con = new DBConnection();
+            try{
+                pst = con.mkDataBase().prepareStatement("UPDATE supplychain SET f_quantity= ?, f_prize=? where f_name = ?");
+                pst.setString(3, tf2.getText());
+                //pst.setDouble(2, Double.parseDouble(tf3.getText()));
+                //pst.setInt(1, Integer.parseInt(tf4.getText()));
+                pst.execute();
+                
+                JOptionPane.showMessageDialog(null, "Product Details Available Quantiy: Price:" + tf2.getText());
+                mainFrame.setVisible(false);
+                
+            }catch(Exception ex){
+                System.out.println(ex);
+                System.out.println("Error");
+                JOptionPane.showMessageDialog(null, "Error");
+            }finally{
+                
+            }
+         }
+      });
+      
+      JPanel jp = new JPanel();
+      jp.add(pid);
+      jp.add(tf2);
+      jp.setSize(200,200);
+      jp.setLayout(experimentLayout);
+      controlPanel.add(jp);
+      jp.add(okButton);
+      
+      mainFrame.setVisible(true);
+      
+      mainFrame.setLocationRelativeTo(null);
+   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+6. Purchase Product module
+This module helps to Purchase Products from the Supply Chain Management System. Name the file PurchaseProduct.java.
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+public class PurchaseProduct {
+   private JFrame mainFrame;
+   private JLabel headerLabel;
+   private JLabel statusLabel;
+   private JPanel controlPanel;
+   private JLabel id,pid,quantity;
+   private static int count = 0;
+   GridLayout experimentLayout = new GridLayout(0,2);
+    ResultSet rs;
+    PurchaseProduct(){
+      prepareGUI();
+   }
+   public static void main(String[] args){
+      PurchaseProduct swingControlDemo = new PurchaseProduct();
+      swingControlDemo.showButtonDemo();
+   }
+   private void prepareGUI(){
+      mainFrame = new JFrame("Purchase Product");
+      mainFrame.setSize(700,400);
+      mainFrame.setLayout(new GridLayout(3, 1));
+      mainFrame.getContentPane().setBackground(Color.green);
+      mainFrame.addWindowListener(new WindowAdapter() {
+         public void windowClosing(WindowEvent windowEvent){
+            mainFrame.setVisible(false);
+         }
+      });
+      headerLabel = new JLabel("", JLabel.CENTER);
+      statusLabel = new JLabel("",JLabel.CENTER);
+      statusLabel.setSize(350,400);
+      controlPanel = new JPanel();
+      controlPanel.setLayout(new FlowLayout());
+      mainFrame.add(headerLabel);
+      mainFrame.add(controlPanel);
+      mainFrame.add(statusLabel);
+      mainFrame.setVisible(true);
+   }
+   public void showButtonDemo(){
+      headerLabel.setText("Supply Chain Management System");
+      headerLabel.setFont(new Font(null, Font.BOLD, 27));
+      headerLabel.setForeground(Color.black);
+    
+        pid = new JLabel("Enter Product Id");
+        JTextField tf2=new JTextField();
+        tf2.setSize(100,30);
+        
+        quantity = new JLabel("Enter Quantity");
+        JTextField tf3=new JTextField();
+        tf3.setSize(100,30);
+        JButton okButton = new JButton("Place Order");
+      okButton.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+            PreparedStatement pst;
+            DBConnection con = new DBConnection();
+            try{
+                pst = con.mkDataBase().prepareStatement("UPDATE supplychain SET f_quantity= ?, f_prize=? where f_name = ?");
+                pst.setString(3, tf2.getText());
+                pst.setDouble(2, Double.parseDouble(tf3.getText()));
+                pst.execute();
+                
+                JOptionPane.showMessageDialog(null, "Product Ordered! Amount: " + tf2.getText());
+                mainFrame.setVisible(false);
+                
+            }catch(Exception ex){
+                System.out.println(ex);
+                //System.out.println("Error");
+                JOptionPane.showMessageDialog(null, "Error");
+            }finally{
+                
+            }
+         }
+      });
+      
+      JPanel jp = new JPanel();
+      jp.add(pid);
+      jp.add(tf2);
+      jp.add(quantity);
+      jp.add(tf3);
+      
+      jp.setSize(200,200);
+      jp.setLayout(experimentLayout);
+      controlPanel.add(jp);
+      jp.add(okButton);
+      
+      mainFrame.setVisible(true);
+      
+      mainFrame.setLocationRelativeTo(null);
+   }
+}
